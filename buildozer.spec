@@ -15,3 +15,5 @@ log_level = 2
 warn_on_root = 1
 
 [android]
+# THIS IS THE FIX: Automatically accept Android SDK licenses
+android.accept_sdk_license = True
