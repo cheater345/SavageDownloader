@@ -17,7 +17,8 @@ jobs:
 
       - name: Build APK
         run: |
-          buildozer android debug
+          # This is the magic: 'yes' automatically answers 'Y' to all license prompts
+          yes | buildozer android debug
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
