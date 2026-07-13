@@ -1,0 +1,21 @@
+name: Build Savage APK
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Build APK with Buildozer
+        uses: ArtKandala/buildozer-action@v1
+        with:
+          buildozer_version: master
+          args: android debug
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Savage-Downloader-APK
+          path: bin/*.apk
